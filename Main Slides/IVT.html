@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenShift Virtualization - Migration Readiness Table</title>
+    <title>Test Phase Plan</title>
     <style>
         :root {
             --bg-dark: #2b2f36;
@@ -146,43 +146,10 @@
         tbody td:last-child { border-right: none; }
         tbody tr:last-child td { border-bottom: none; }
 
-        .col-app { width: 33%; font-weight: 700; }
-        .col-runs { width: 21%; }
-        .col-caveat { width: 31%; }
-        .col-go { width: 15%; text-align: center; }
-
-        .status {
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            white-space: nowrap;
-        }
-
-        .dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            display: inline-block;
-            flex: 0 0 14px;
-        }
-
-        .dot.ok { background: var(--ok); }
-        .dot.no { background: var(--no); }
-
-        .badge {
-            display: inline-block;
-            min-width: 84px;
-            padding: 7px 12px;
-            border-radius: 999px;
-            color: var(--white);
-            font-weight: 700;
-            font-size: 13px;
-            text-align: center;
-        }
-
-        .badge.ok { background: var(--ok); }
-        .badge.no { background: var(--no); }
+        .col-phase { width: 22%; font-weight: 700; }
+        .col-when { width: 28%; }
+        .col-who { width: 20%; }
+        .col-dep { width: 30%; }
 
         .footer-band {
             position: absolute;
@@ -204,18 +171,18 @@
     <div class="slide">
         <div class="topbar">
             <div class="left">
-                <span class="pill-icon">☁️</span>
-                <span>VMware to OpenShift Virtualization</span>
+                <span class="pill-icon">🧪</span>
+                <span>Migration Testing Program</span>
             </div>
             <div class="right">
                 <span class="pill-icon">📊</span>
-                <span>Migration Readiness</span>
+                <span>Test Phase Plan</span>
             </div>
         </div>
 
         <div class="content">
             <div class="title-row">
-                <h1>OpenShift Virtualization – <span class="title-accent">Migration Readiness Table</span></h1>
+                <h1>Migration Program - <span class="title-accent">Test Phase Plan</span></h1>
                 <div class="mini-icon">📊</div>
             </div>
 
@@ -223,54 +190,54 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="col-app">Application / Stack</th>
-                            <th class="col-runs">Runs on OpenShift Virtualization</th>
-                            <th class="col-caveat">Key limitation / caveat</th>
-                            <th class="col-go">Go / No-Go</th>
+                            <th class="col-phase">Test phase</th>
+                            <th class="col-when">When</th>
+                            <th class="col-who">Who</th>
+                            <th class="col-dep">Dependencies</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="col-app">SAP HANA</td>
-                            <td class="col-runs"><span class="status"><span class="dot no"></span>No</span></td>
-                            <td class="col-caveat">SAP does not support SAP HANA on OpenShift Virtualization.</td>
-                            <td class="col-go"><span class="badge no">No-Go</span></td>
+                            <td class="col-phase">IVT: Infrastructure Verification Testing</td>
+                            <td class="col-when">After each stage of new infrastructure build in target is complete</td>
+                            <td class="col-who">Kyndryl build team</td>
+                            <td class="col-dep">Build is complete</td>
                         </tr>
                         <tr>
-                            <td class="col-app">SAP Business Applications</td>
-                            <td class="col-runs"><span class="status"><span class="dot no"></span>No</span></td>
-                            <td class="col-caveat">SAP policy applies to all SAP business apps.</td>
-                            <td class="col-go"><span class="badge no">No-Go</span></td>
+                            <td class="col-phase">SMT: Server Migration Testing</td>
+                            <td class="col-when">In source and target for each event</td>
+                            <td class="col-who">Kyndryl migration team</td>
+                            <td class="col-dep">Build complete, IVT complete, and other migration entry criteria met</td>
                         </tr>
                         <tr>
-                            <td class="col-app">Oracle Database</td>
-                            <td class="col-runs"><span class="status"><span class="dot ok"></span>Yes</span></td>
-                            <td class="col-caveat">Follow Red Hat reference architecture.</td>
-                            <td class="col-go"><span class="badge ok">Go</span></td>
+                            <td class="col-phase">TVT: Technical Verification Testing</td>
+                            <td class="col-when">In source once (for timings), in target at each event, and twice at cutover</td>
+                            <td class="col-who">Kyndryl migration team / IMI support team</td>
+                            <td class="col-dep">IMI/Migration architect to provide tests per interface and other points of change. SMT complete and test entry criteria met</td>
                         </tr>
                         <tr>
-                            <td class="col-app">Oracle RAC</td>
-                            <td class="col-runs"><span class="status"><span class="dot ok"></span>Yes</span></td>
-                            <td class="col-caveat">Requires specific architecture design.</td>
-                            <td class="col-go"><span class="badge ok">Go</span></td>
+                            <td class="col-phase">AVT: Application Verification Testing</td>
+                            <td class="col-when">In source once (for timings), in target at each event, and twice at cutover</td>
+                            <td class="col-who">Apps support teams</td>
+                            <td class="col-dep">Apps support teams provide tests per application. Normally TVT is fully complete</td>
                         </tr>
                         <tr>
-                            <td class="col-app">Microsoft SQL Server</td>
-                            <td class="col-runs"><span class="status"><span class="dot ok"></span>Yes</span></td>
-                            <td class="col-caveat">Supported via Microsoft SVVP validation.</td>
-                            <td class="col-go"><span class="badge ok">Go</span></td>
+                            <td class="col-phase">BVT: Business Verification Testing</td>
+                            <td class="col-when">In source once (for timings), in target at each event, including at cutover (non-prod apps)</td>
+                            <td class="col-who">Business teams</td>
+                            <td class="col-dep">Business provides tests per application. AVT associated with an application must complete before BVT starts (phase overlap may be possible). AVT must be complete</td>
                         </tr>
                         <tr>
-                            <td class="col-app">Windows Server workloads</td>
-                            <td class="col-runs"><span class="status"><span class="dot ok"></span>Yes</span></td>
-                            <td class="col-caveat">Supported under Microsoft virtualization program.</td>
-                            <td class="col-go"><span class="badge ok">Go</span></td>
+                            <td class="col-phase">UAT: User Acceptance Testing</td>
+                            <td class="col-when">In source once (for timings), in target at each event, including at cutover (production apps)</td>
+                            <td class="col-who">Business teams</td>
+                            <td class="col-dep">Business provides tests per application. AVT associated with an application must complete before UAT starts (phase overlap may be possible). AVT must be complete</td>
                         </tr>
                         <tr>
-                            <td class="col-app">Citrix Virtual Apps &amp; Desktops</td>
-                            <td class="col-runs"><span class="status"><span class="dot ok"></span>Yes</span></td>
-                            <td class="col-caveat">Supported integration available.</td>
-                            <td class="col-go"><span class="badge ok">Go</span></td>
+                            <td class="col-phase">Field Of View</td>
+                            <td class="col-when">Only after post-cutover BVT passed and test exit agreed. May be on cutover day or days following</td>
+                            <td class="col-who">Business teams plus any app support post-processing</td>
+                            <td class="col-dep">Exit from cutover testing has been agreed</td>
                         </tr>
                     </tbody>
                 </table>
@@ -278,7 +245,7 @@
         </div>
 
         <div class="footer-band">
-            Planning principle: assess vendor support and platform fit together before placing workloads into migration waves.
+            Planning principle: complete each testing dependency gate before starting the next phase in the migration wave.
         </div>
     </div>
 </body>
