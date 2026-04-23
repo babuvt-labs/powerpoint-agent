@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agenda - VMware ESXi to OpenShift Virtualization Workshop</title>
+    <style>
+        :root {
+            --bg-dark: #2b2f36;
+            --slide-bg: #eef3f4;
+            --teal-1: #0b7b84;
+            --teal-2: #26a9b4;
+            --teal-3: #d9eef0;
+            --text: #2b3f52;
+            --grid: #d6dfe3;
+            --white: #ffffff;
+            --text-soft: #4b6072;
+            --title: #24384a;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(180deg, #22262c 0%, var(--bg-dark) 100%);
+            font-family: "Segoe UI", "Calibri", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text);
+        }
+
+        .slide {
+            width: 1366px;
+            height: 768px;
+            background: var(--slide-bg);
+            border: 1px solid rgba(255,255,255,0.28);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .topbar {
+            height: 64px;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--white);
+            background: linear-gradient(90deg, var(--teal-1), var(--teal-2));
+            font-weight: 600;
+        }
+
+        .topbar .left,
+        .topbar .right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+        }
+
+        .pill-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 18px 28px 22px;
+        }
+
+        .title-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            gap: 18px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 34px;
+            line-height: 1.12;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--title);
+        }
+
+        .title-accent {
+            color: #0e8b95;
+        }
+
+        .mini-icon {
+            font-size: 42px;
+            margin-left: 12px;
+            flex: 0 0 auto;
+        }
+
+        .agenda-shell {
+            height: 592px;
+            background: rgba(255,255,255,0.48);
+            border: 1px solid #dde6e9;
+            border-radius: 18px;
+            padding: 14px;
+        }
+
+        .agenda-card {
+            height: 100%;
+            background: var(--white);
+            border: 1px solid #c8d7dc;
+            border-radius: 14px;
+            padding: 18px 22px;
+        }
+
+        .agenda-intro {
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            line-height: 1.35;
+            color: var(--text-soft);
+            font-weight: 500;
+        }
+
+        .agenda-list {
+            margin: 0;
+            padding-left: 28px;
+            display: grid;
+            gap: 10px;
+            font-size: 24px;
+            line-height: 1.28;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .agenda-list li::marker {
+            color: #1297a3;
+            font-size: 1.05em;
+        }
+
+        .footer-band {
+            position: absolute;
+            left: 28px;
+            right: 28px;
+            bottom: 18px;
+            background: #d7ecef;
+            border: 2px solid #8ed0d7;
+            border-left: 6px solid #1ba4b0;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 15px;
+            color: #0d5b62;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="topbar">
+            <div class="left">
+                <span class="pill-icon">☁️</span>
+                <span>VMware ESXi to OpenShift Virtualization</span>
+            </div>
+            <div class="right">
+                <span class="pill-icon">📋</span>
+                <span>Workshop Agenda</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="title-row">
+                <h1>AGENDA - <span class="title-accent">VMware ESXi to OpenShift Virtualization Workshop</span></h1>
+                <div class="mini-icon">📊</div>
+            </div>
+
+            <div class="agenda-shell">
+                <div class="agenda-card">
+                    <p class="agenda-intro">Session focus areas:</p>
+                    <ul class="agenda-list">
+                        <li>Validate scope and inventory (clusters, hosts, VMs)</li>
+                        <li>Align on migration strategy and guiding principles</li>
+                        <li>Confirm application dependencies and topology</li>
+                        <li>Define migration waves and prioritization approach</li>
+                        <li>Agree on fallback, rollback, and stabilization strategy</li>
+                        <li>Review infrastructure, capacity, and host re-use plan</li>
+                        <li>Establish execution governance and rollout sequencing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-band">
+            Outcome: a shared migration plan, sequencing model, and risk-managed execution approach.
+        </div>
+    </div>
+</body>
+</html>
